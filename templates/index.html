@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        .map {
+            position:absolute;
+            top: 10%;
+            left: 10%;
+            width: 100%;
+            height: 80%;
+            border: 2px solid black;
+        };
+    </style>
+
+    <style>
+        .crop {
+            float: left;
+            margin-left: 0px;
+            width: 965px; /* Set the desired width */
+            height: 380px; /* Set the desired height */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .crop img {
+            width: 100%; /* Image should cover the container */
+            height: 100%;
+            object-fit: cover; /* Crop the image */
+            object-position: center; /* Center the image within the container */
+        }
+    </style>
+</head>
+    <body>
+        {{ dash_layout|safe }}
+
+        <div class="crop">
+            <img src="{{ url_for('static', filename='images/title.gif') }}" alt="Example Image">
+        </div>
+
+        {{ map|safe }}
+
+    </body>
+</html>
